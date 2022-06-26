@@ -52,7 +52,7 @@ class HomeScreen(QMainWindow):
         menu_widget.setStyleSheet(
             "QWidget"
             "{"
-            "background-color : #4CAF50;"
+            "background-color : #73427d;"
             "border-radius: 0px;"
             "}"
         )
@@ -87,7 +87,7 @@ class HomeScreen(QMainWindow):
         main_widget.setStyleSheet("QWidget"
                                   "{"
 
-                                  "background-color : #9fd6a0;"#E6E6E6;"
+                                  "background-color : #cec0d1;"#E6E6E6;"
                                   "border: none;"
                                   "margin: 0px;"
                                   "padding: 0px;"

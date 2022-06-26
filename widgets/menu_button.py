@@ -15,12 +15,12 @@ def menu_button(name, self):
                          "margin-top: 00px;"
                          "padding-left: 10px;"
                          "font-weight: medium;"
-                         "background-color : #4CAF50;"#38753a
+                         "background-color : #73427d;"#38753a
                          "color: 'white';"
                          "transition-duration: 0.4s;"
                          "}"
                          "QPushButton:hover {"
-                         "background-color: #38753a; "
+                         "background-color: #411f47; "
                          "}"
 
                          )
