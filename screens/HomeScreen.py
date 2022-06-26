@@ -1,6 +1,9 @@
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
+from views.AGview import agTab
+from views.RecuitSimule import rsTab
+from views.densitygreedyview import densitygreedy
 
 from widgets.menu_button import menu_button
 
@@ -22,14 +25,16 @@ class HomeScreen(QMainWindow):
         self.home = menu_button('Home', self)
         self.branch = menu_button('Branch and bound', self)
         self.dynamic = menu_button('Dynamic Programming', self)
-        self.greedy = menu_button('Greedy heuristic', self)
-        self.hill = menu_button('Hill Climbing heuristic', self)
+        self.greedy = menu_button('Density Greedy heuristic', self)
+        self.rs = menu_button('Recuit Simule metaheureistic', self)
+        self.ag = menu_button('Genetic Algorithm ', self)
 
         self.home.clicked.connect(self.showHome)
         self.branch.clicked.connect(self.showBranch)
         self.dynamic.clicked.connect(self.showDynamic)
         self.greedy.clicked.connect(self.showGreedy)
-        self.hill.clicked.connect(self.showHill)
+        self.rs.clicked.connect(self.showrs)
+        self.ag.clicked.connect(self.showag)
 
         self.initUI()
 
@@ -43,7 +48,8 @@ class HomeScreen(QMainWindow):
         menu_layout.addWidget(self.branch)
         menu_layout.addWidget(self.dynamic)
         menu_layout.addWidget(self.greedy)
-        menu_layout.addWidget(self.hill)
+        menu_layout.addWidget(self.rs)
+        menu_layout.addWidget(self.ag)
         menu_layout.addStretch(0)
         menu_layout.setContentsMargins(0, 0, 0, 0)
 
@@ -64,8 +70,9 @@ class HomeScreen(QMainWindow):
         self.tab_widget.addTab(self.homeTab(), '')
         self.tab_widget.addTab(branchTab(self), '')
         self.tab_widget.addTab(self.dynamicTab(), '')
-        self.tab_widget.addTab(self.greedyTab(), '')
-        self.tab_widget.addTab(self.hillTab(), '')
+        self.tab_widget.addTab(densitygreedy(self), '')
+        self.tab_widget.addTab(rsTab(self), '')
+        self.tab_widget.addTab(agTab(self), '')
 
         self.tab_widget.setCurrentIndex(0)
         self.tab_widget.setStyleSheet(
@@ -113,8 +120,10 @@ class HomeScreen(QMainWindow):
     def showGreedy(self):
         self.tab_widget.setCurrentIndex(3)
 
-    def showHill(self):
+    def showrs(self):
         self.tab_widget.setCurrentIndex(4)
+    def showag(self):
+        self.tab_widget.setCurrentIndex(5)
 
     # -----------------
     # pages
@@ -192,21 +201,8 @@ class HomeScreen(QMainWindow):
         main.setLayout(main_layout)
         return main
 
-    def greedyTab(self):
-        main_layout = QVBoxLayout()
-        main_layout.addWidget(QLabel('Greedy heuristic'))
-        main_layout.addStretch(5)
-        main = QWidget()
-        main.setLayout(main_layout)
-        return main
 
-    def hillTab(self):
-        main_layout = QVBoxLayout()
-        main_layout.addWidget(QLabel('Hill Climbing heuristic'))
-        main_layout.addStretch(5)
-        main = QWidget()
-        main.setLayout(main_layout)
-        return main
 
+   
   
 

@@ -98,8 +98,9 @@ def BranchBound( capacity,array):
             volume_taken += int((pt[i].w))*int(sols[i])
             values.append(str(pt[i].v))
             nb_exem.append(str(sols[i]))
+    d=str("{:.15f}".format(t2-t1))+ ' s'
 
-    return t2-t1, M, volume_taken, objs, vols,values, nb_exem 
+    return d, M, volume_taken, objs, vols,values, nb_exem 
 
 def BranchBousnd(cap_sac, array):
     print('rr')
